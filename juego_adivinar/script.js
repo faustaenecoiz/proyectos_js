@@ -4,8 +4,13 @@ let numeroAleatorio = Math.floor(Math.random()*500)+1
 // el numero que ingresa la persona 
 let numeroEntrada = document.querySelector("#numeroEntrada");
 let mensaje = document.querySelector("#mensaje");
+let intentos = document.querySelector("#intentos")
+let sumaIntentos = 0;
 //al hacer click en el boton verificar
 function comprobarResultado(){
+    sumaIntentos ++;
+    intentos.textContent =  sumaIntentos;
+
 let numeroIngresado = parseInt(numeroEntrada.value ) 
 if (numeroIngresado>500 || numeroIngresado < 1 || isNaN(numeroIngresado) ) {
     mensaje.textContent = "¡Error! Ingrese un número valido entre 1 y 500";
@@ -15,7 +20,7 @@ if (numeroIngresado>500 || numeroIngresado < 1 || isNaN(numeroIngresado) ) {
 }
 if (numeroIngresado === numeroAleatorio) {
     mensaje.textContent = "¡Felicitaciones! Has acertado";
-    mensaje.style.color = "green";
+    mensaje.style.color = "chartreuse";
     //una vez que ganas queda desabilidado el numero de entrada 
     numeroEntrada.disabled = true;  
 }else if (numeroIngresado < numeroAleatorio) {
